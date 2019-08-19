@@ -1,0 +1,87 @@
+<template>
+  <div>
+    <div v-if="msg.say==user.id">
+      <div style="text-align: center;font-size: 0.8em;color: rgb(109,110,106)">
+        {{ msg.time }}
+      </div>
+      <div style="display:inline-block;">
+        <div style=" float: left; ">
+          <img
+            style="width: 40px;height: 40px;border-radius: 50%;"
+            :src="'http://101.132.116.167'+user.url">
+        </div>
+        <div style="padding-left: 50px">
+          <p style="margin: 0;padding-bottom:8px">
+            {{ user.name }}
+          </p>
+          <div style="background-color: rgb(0,163,120);padding: 10px;border-radius: 8px;color: white">
+            <img v-show="msg.url" class="img" :src="'http://101.132.116.167'+msg.url">
+            <img v-show="msg.src" style="width:50px;height:50px" class="img" :src="msg.src">
+            {{ msg.message }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-else>
+      <div>
+        <div style="text-align: center;font-size: 0.8em;color: rgb(109,110,106)">
+          {{ msg.time }}
+        </div>
+        <div style="display:block;overflow:hidden">
+          <div style="display:inline-block;float: right;">
+            <div style="float: right;">
+              <img
+                style="width: 40px;height: 40px;border-radius: 50%;"
+                :src="'http://101.132.116.167'+friend.url">
+            </div>
+            <div style="float: right;padding-right: 10px">
+              <div style="overflow:hidden">
+                <p style="margin: 0;float:right;padding-bottom:8px">
+                  {{ friend.name }}
+                </p>
+              </div>
+              <div style="background-color: rgb(51,73,94);padding: 10px;border-radius: 8px;color: white">
+                <img v-show="msg.url" class="img" :src="'http://101.132.116.167'+msg.url">
+                <img v-show="msg.src" style="width:50px;height:50px" class="img" :src="msg.src">
+                {{ msg.message }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  name:'Message',
+  props:{
+    msg: {
+      type: Object,
+      default() {
+        return{}
+      }
+    },
+    user: {
+      type: Object,
+      default() {
+        return{}
+      }
+    },
+    friend: {
+      type: Object,
+      default() {
+        return{}
+      }
+    }
+  }
+}
+</script>
+<style>
+.img{
+  max-width: 200px;
+}
+div,p,span{
+  font-weight: 300;
+}
+</style>

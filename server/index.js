@@ -25,6 +25,10 @@ async function start() {
     await nuxt.ready()
   }
 
+  // app.use('/*.png', (ctx) => {
+  //   ctx.res.setHeader('Expires', new Date(Date.now() + 60 * 60 * 1000).toUTCString());
+  // })
+
   app.use((ctx) => {
     ctx.status = 200
     ctx.respond = false // Bypass Koa's built-in response handling

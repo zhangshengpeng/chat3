@@ -28,12 +28,28 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~plugins/my-plugins'
   ],
   /*
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy'
   ],
+  axios: {
+    prefix: '/api/',
+    proxy: true // Can be also an object with default options
+  },
+  proxy: {
+    '/api': {
+      target: 'http://101.132.116.167', // 代理地址
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api': '', //将 /api 替换掉
+      }
+    }
+  },
   /*
   ** Build configuration
   */
@@ -42,6 +58,16 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-    }
+       // Run ESLint on save
+       if (ctx.isDev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: "pre",
+          test: /\.(js|vue)$/,
+          loader: "eslint-loader",
+          exclude: /(node_modules)/
+        })
+      }
+    },
+    vendor:['axios']
   }
 }

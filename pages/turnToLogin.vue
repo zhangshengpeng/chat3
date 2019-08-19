@@ -1,15 +1,12 @@
 <template>
   <div class="message">
-    <window />
+    <div>hi</div>
   </div>
 </template>
 
 <script>
-import window from '@/assets/window.vue'
 export default {
-  components: {
-    window
-  },
+  data() {}
 }
 </script>
 <style lang="less" scoped>
