@@ -152,11 +152,15 @@ export default {
       }
     },
     getInfo() {
-      document.cookie = "token="+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJpYXQiOjE1NjU5MzY3MzcsImV4cCI6MTU2NjAyMzEzN30.GbHQMCFSrmcFWw9Ob8fdXzZ5vOH4kEhg2ImbSYHA6iM"
+      if(document.cookie.token){
+        console.log()
+      } else {
+      document.cookie = "token="+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJpYXQiOjE1NjYxODYyOTIsImV4cCI6MTU2NjI3MjY5Mn0.9NzYHwtXrVXUi08SeZrZcisvqhbusd-6ThJzUE5NU_E"
+      }
       const _this = this
       this.$axios.get('/User_info')
       .then(function (response) {
-        if(response.status) {
+        if(response.status == 1) {
           location.href = 'http://www.bixiaohe.fun/turnToLogin.html';
         } else {
           _this.user = response.data

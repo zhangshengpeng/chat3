@@ -19,7 +19,6 @@
         trigger="hover"
         width="300">
         <div class="emoji-item">
-          <!-- <img v-for="(item,index) in emojis" :key="index" :src="`/static/img/emoji/${item}.gif`"> -->
           <img v-for="(item,index) in emojis" :key="index" :src="item.src" @click="sendEmoji(index)">
         </div>
         <img slot="reference" class="emoji" src="~/assets/img/emoji.png">
@@ -87,7 +86,7 @@ export default {
   },
   methods: {
     handelSubmit() {
-      if(this.textarea !== '\n') {
+      if(this.textarea !== '\n' && this.textarea !== '') {
         let myDate = new Date();
         let time =  myDate.toLocaleString();
         let str = {
