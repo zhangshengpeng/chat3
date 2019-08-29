@@ -6,17 +6,18 @@ const createStore = () => {
   return new Vuex.Store({
     strict: false,
     state: () => ({
-      mydata: 0,
-      name: 'zsp'
+      user: {}
     }),
     mutations: {
-      add(state) {
-        return state.mydata++
+      getInfo(state,res){
+        state.user = res
+        console.log(state.user)
       }
     },
     actions: {
-      actionAdd(context) {
-        return context.commit('add')
+      async getInfo(context) {
+        let response = await this.$axios.get('/User_info')
+        context.commit('getInfo',response.data)
       }
     }
     // modules: {

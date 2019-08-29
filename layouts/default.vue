@@ -285,12 +285,13 @@ export default {
     text-align: center;
   }
   .main{
+    background: white;
     display: flex;
     width: 800px;
     height: 600px;
     margin: 0 auto;
     margin-top: 100px;
-    box-shadow: 0 0 10px rgb(200, 200, 200);
+    box-shadow: 0 0 10px rgb(33, 36, 70);
   }
   .head-img{
       width: 40px;
