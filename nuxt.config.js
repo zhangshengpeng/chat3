@@ -15,6 +15,13 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+
+  options: {
+    server: {
+      port: 3000,
+      host: '101.132.116.167'
+    }
+  },
   /*
   ** Customize the progress-bar color
   */
