@@ -2,13 +2,13 @@
   <div class="container">
     <div class="main">
       <audio id="ding" controls="controls" hidden>
-        <source src="http://101.132.116.167/music/new.mp3">
-        <source src="http://101.132.116.167/music/new.wav">
+        <!-- <source src="http://101.132.116.167/music/new.mp3">
+        <source src="http://101.132.116.167/music/new.wav"> -->
       </audio>
-      <audio id="lp" controls="controls" hidden>
+      <!-- <audio id="lp" controls="controls" hidden>
         <source src="http://101.132.116.167/music/lp.mp3">
         <source src="http://101.132.116.167/music/lp.wav">
-      </audio>
+      </audio> -->
       <div class="set">
         <el-popover placement="bottom" trigger="hover">
           <p>昵称：{{ user.name }}</p>
@@ -53,7 +53,7 @@
       <div v-show="page === 2">
         <el-form label-width="80px" style="margin:40px 0 0 40px;text-align:left;width:300px;">
           <el-form-item label="头像">
-            <el-upload class="upload" action="/api/uploadImg" name="user" :on-success="headUpload">
+            <el-upload class="upload" action="/api/upload-img" name="user" :on-success="headUpload">
               <img v-if="upload.url" :src="'http://101.132.116.167'+upload.url" class="upload-img">
               <i v-else class="el-icon-plus" />
             </el-upload>
@@ -152,22 +152,18 @@ export default {
       }
     },
     getInfo() {
-      if(document.cookie.token){
-        console.log()
-      } else {
-      document.cookie = "token="+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJpYXQiOjE1NjYxODYyOTIsImV4cCI6MTU2NjI3MjY5Mn0.9NzYHwtXrVXUi08SeZrZcisvqhbusd-6ThJzUE5NU_E"
-      }
       const _this = this
-      this.$axios.get('/User_info')
+      this.$axios.get('/user-info')
       .then(function (response) {
         if(response.status == 1) {
           location.href = 'http://www.bixiaohe.fun/turnToLogin.html';
         } else {
+          console.log(response.data)
           _this.user = response.data
           _this.upload.name = response.data.name
           _this.upload.address = response.data.address
           _this.$socket.emit('online', _this.user.id)
-          _this.$axios.post('Friend_info')
+          _this.$axios.post('/friend-info')
           .then(function(response) {
             _this.contactors = response.data
             _this.contactors.forEach((item, index) => {
@@ -187,7 +183,7 @@ export default {
       if(id==='check'){
         console.log(id)
       } else{
-          this.$axios.post('/Friend',{
+          this.$axios.post('/friend',{
           friend_id:id,
           user_id:this.user.id,
           operation: 'delete'
@@ -205,7 +201,7 @@ export default {
             type: 'error'
           });
       } else{
-          this.$axios.post('/Friend',{
+          this.$axios.post('/friend',{
           operation: 'add',
           friend_id: this.addId,
           user_id: this.user.id
@@ -244,7 +240,7 @@ export default {
       this.upload.url = res.url
     },
     uploadSubmit() {
-      this.$axios.post('/Upload_info',this.upload)
+      this.$axios.post('/upload-info',this.upload)
         .then((res) => {
           this.user.name = res.data.name
           this.user.address = res.data.address
