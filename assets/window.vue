@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="foot">
-      <el-upload class="upload" action="/api/Img" name="img" :show-file-list="false" :on-success="sendImg">
+      <el-upload class="upload" action="/api/img" name="img" :show-file-list="false" :on-success="sendImg">
         <img class="foot-img" src="~/assets/img/img.png">
       </el-upload>
       <el-popover
