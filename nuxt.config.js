@@ -43,7 +43,7 @@ module.exports = {
   },
   proxy: {
     '/api': {
-      target: 'http://localhost', // 代理地址
+      target: 'http://101.132.116.167', // 代理地址
       changeOrigin: true,
       pathRewrite: {
         '^/api': '', //将 /api 替换掉
