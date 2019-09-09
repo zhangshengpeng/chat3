@@ -16,7 +16,7 @@ async function start() {
   //   host = process.env.HOST || '127.0.0.1',
   //   port = process.env.PORT || 3000
   // } = nuxt.options.server
-const host = '127.0.0.1';
+const host = '0.0.0.0';
 const port = 3000;
   // Build in development
   if (config.dev) {
