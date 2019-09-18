@@ -122,7 +122,7 @@ export default {
       this.friend = item;
       this.page = 0
       this.contactors[i].isNew = false
-      this.$axios.post('/History',
+      this.$axios.post('/history',
       {
         userId: this.user.id,
         friendId: item.id
