@@ -7,6 +7,7 @@
       <div style="display:inline-block;">
         <div style=" float: left; ">
           <img
+          v-if="user.url"
             style="width: 40px;height: 40px;border-radius: 50%;"
             :src="'http://101.132.116.167'+user.url">
         </div>
@@ -15,8 +16,8 @@
             {{ user.name }}
           </p>
           <div style="background-color: rgb(0,163,120);padding: 10px;border-radius: 8px;color: white">
-            <img v-show="msg.url" class="img" :src="'http://101.132.116.167'+msg.url">
-            <img v-show="msg.src" style="width:50px;height:50px" class="img" :src="msg.src">
+            <img v-if="msg.url" class="img" :src="'http://101.132.116.167'+msg.url">
+            <img v-if="msg.src" style="width:50px;height:50px" class="img" :src="msg.src">
             {{ msg.message }}
           </div>
         </div>
@@ -31,6 +32,7 @@
           <div style="display:inline-block;float: right;">
             <div style="float: right;">
               <img
+                v-if="friend.url"
                 style="width: 40px;height: 40px;border-radius: 50%;"
                 :src="'http://101.132.116.167'+friend.url">
             </div>
@@ -41,8 +43,8 @@
                 </p>
               </div>
               <div style="background-color: rgb(51,73,94);padding: 10px;border-radius: 8px;color: white">
-                <img v-show="msg.url" class="img" :src="'http://101.132.116.167'+msg.url">
-                <img v-show="msg.src" style="width:50px;height:50px" class="img" :src="msg.src">
+                <img v-if="msg.url" class="img" :src="'http://101.132.116.167'+msg.url">
+                <img v-if="msg.src" style="width:50px;height:50px" class="img" :src="msg.src">
                 {{ msg.message }}
               </div>
             </div>

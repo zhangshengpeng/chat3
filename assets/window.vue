@@ -3,6 +3,7 @@
     <div class="head">
       {{ info.name }}
     </div>
+    <!-- 显示消息 -->
     <div class="main">
       <div ref="chatContainer" class="message">
         <div v-for="(item,index) in messages" :key="index">
@@ -10,6 +11,7 @@
         </div>
       </div>
     </div>
+    <!-- 输入栏 -->
     <div class="foot">
       <el-upload class="upload" action="/api/img" name="img" :show-file-list="false" :on-success="sendImg">
         <img class="foot-img" src="~/assets/img/img.png">
@@ -26,6 +28,8 @@
       <textarea v-model="textarea" @keyup.enter="handelSubmit" />
       <button @click="handelSubmit">发送</button>
     </div>
+
+
   </div>
 </template>
 

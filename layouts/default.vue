@@ -10,12 +10,13 @@
         <source src="http://101.132.116.167/music/lp.wav">
       </audio> -->
       <div class="set">
-        <el-popover placement="bottom" trigger="hover">
+        <el-popover v-if="user.url" placement="bottom" trigger="hover">
           <p>昵称：{{ user.name }}</p>
           <p>地址：{{ user.address }}</p>
           <img slot="reference" class="head-img" :src="'http://101.132.116.167'+user.url" @click="page=2">
         </el-popover>
       </div>
+      <!-- 好友列表 -->
       <div class="contact">
         <ul>
           <li v-for="(contactor, index) in contactors" :key="index" class="contactor" :class="index === isActive ? 'active':''" @click="handelclick(contactor,index)">
@@ -37,9 +38,12 @@
           </li>
         </ul>
       </div>
+
+      <!-- 显示消息 -->
       <div v-show="page === 0" class="message">
         <window :info="friend" :messages="messages" :userinfo="user" @newMsg="ding" />
       </div>
+      <!-- 添加好友 -->
       <div v-show="page === 1">
         <el-form label-width="80px" style="margin:40px 0 0 40px;text-align:left">
           <el-form-item label="id">
@@ -50,6 +54,7 @@
           </el-form-item>
         </el-form>
       </div>
+      <!-- 修改个人信息 -->
       <div v-show="page === 2">
         <el-form label-width="80px" style="margin:40px 0 0 40px;text-align:left;width:300px;">
           <el-form-item label="头像">
@@ -71,6 +76,8 @@
           </el-form-item>
         </el-form>
       </div>
+
+
     </div>
   </div>
 </template>
@@ -115,6 +122,8 @@ export default {
   },
   mounted() {
     this.getInfo()
+    let t ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJpYXQiOjE1NzIzMTM0ODcsImV4cCI6MTU3MjM5OTg4N30.vr4oxteCsPPH_lwNkGlUVMdJudOu8WH8O0Bx10BznKI"
+    document.cookie=`token=${t}`
   },
   methods: {
     handelclick(item,i) {
@@ -129,6 +138,7 @@ export default {
       })
         .then(res => {
           //在对象中插入响应属性
+          console.log(res)
           this.$set(this.contactors[i], 'messages', res.data)
         })
         .catch(function (error) {
@@ -247,18 +257,7 @@ export default {
           this.user.url = res.data.url
         })
     },
-    // ...mapMutations({
-    //   mutationAdd: 'add'
-    // }),
-    // ...mapActions({
-    //   asyncAdd: 'actionAdd'
-    // })
-    // mutationAdd() {
-    //   this.$store.commit('add')
-    // },
-    // asyncAdd() {
-    //   this.$store.dispatch('actionAdd')
-    // }
+
   },
 }
 
