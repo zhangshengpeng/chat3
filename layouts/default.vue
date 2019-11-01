@@ -18,7 +18,6 @@
       </div>
       <!-- 好友列表 -->
       <div class="contact">
-
         <ul>
           <li v-if="!contactors.length">暂无好友</li>
           <li v-for="(contactor, index) in contactors" :key="index" :class="index === isActive ? 'active':''" @click="handelclick(contactor,index)">
