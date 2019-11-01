@@ -10,16 +10,17 @@
         <source src="http://101.132.116.167/music/lp.wav">
       </audio> -->
       <div class="set">
-        <el-popover v-if="user.url" placement="bottom" trigger="hover">
+        <el-popover placement="bottom" trigger="hover">
           <p>昵称：{{ user.name }}</p>
           <p>地址：{{ user.address }}</p>
-          <img slot="reference" class="head-img" :src="'http://101.132.116.167'+user.url" @click="page=2">
+          <img slot="reference" class="head-img" :src="user.url ? 'http://101.132.116.167'+user.url : 'http://101.132.116.167/img/defualt.jpg'" @click="page=2">
         </el-popover>
       </div>
       <!-- 好友列表 -->
       <div class="contact">
         <ul>
-          <li v-for="(contactor, index) in contactors" :key="index" class="contactor" :class="index === isActive ? 'active':''" @click="handelclick(contactor,index)">
+          <li v-if="!contactors.length">暂无好友</li>
+          <li v-for="(contactor, index) in contactors" :key="index" :class="index === isActive ? 'active':''" @click="handelclick(contactor,index)">
             <img class="head-img" :src="'http://101.132.116.167'+contactor.url">
             <span style="width:60px">{{ contactor.name }}</span>
             <span :class=" contactor.isNew ? 'new-msg' : ''" />
@@ -33,8 +34,9 @@
           </li>
         </ul>
         <ul>
-          <li class="contactor" @click="add">
+          <li @click="add" class="add">
             <img class="head-img" src="~/assets/img/add3.png">
+            <span style="padding-top:10px">添加好友</span>
           </li>
         </ul>
       </div>
@@ -122,8 +124,8 @@ export default {
   },
   mounted() {
     this.getInfo()
-    // let t ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJpYXQiOjE1NzIzMTM0ODcsImV4cCI6MTU3MjM5OTg4N30.vr4oxteCsPPH_lwNkGlUVMdJudOu8WH8O0Bx10BznKI"
-    // document.cookie=`token=${t}`
+    let t ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJpYXQiOjE1NzI1OTQ0MDMsImV4cCI6MTU3MjY4MDgwM30.XZmZBA8wQObDZeWOfznA8oFJ4ZTmt3ZLRRumDxTYDh0"
+    document.cookie=`token=${t}`
   },
   methods: {
     handelclick(item,i) {
