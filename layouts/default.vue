@@ -350,7 +350,6 @@ export default {
     }
   }
   .operation{
-    // display: none
     margin-left:40px;
     height:14px;
     line-height: 40px;
