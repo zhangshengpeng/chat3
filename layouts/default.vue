@@ -118,9 +118,6 @@ export default {
     messages() {
       return this.contactors[this.isActive] ? this.contactors[this.isActive].messages : []
     },
-    // ...mapState([
-    //   'mydata'
-    // ])
   },
   mounted() {
     this.getInfo()
