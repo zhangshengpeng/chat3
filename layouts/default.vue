@@ -19,7 +19,7 @@
       <!-- 好友列表 -->
       <div class="contact">
         <ul>
-          <li v-if="!contactors.length">暂无好友</li>
+          <li v-if="!contactors.length" style="background: none; color:#aaaaaa; justify-content: center">暂无好友</li>
           <li v-for="(contactor, index) in contactors" :key="index" :class="index === isActive ? 'active':''" @click="handelclick(contactor,index)">
             <img class="head-img" :src="'http://101.132.116.167'+contactor.url">
             <span style="width:60px">{{ contactor.name }}</span>
@@ -121,8 +121,8 @@ export default {
   },
   mounted() {
     this.getInfo()
-    // let t ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJpYXQiOjE1NzI1OTQ0MDMsImV4cCI6MTU3MjY4MDgwM30.XZmZBA8wQObDZeWOfznA8oFJ4ZTmt3ZLRRumDxTYDh0"
-    // document.cookie=`token=${t}`
+    let t ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEzOCIsImlhdCI6MTU3MjU5OTMxOSwiZXhwIjoxNTcyNjg1NzE5fQ.HtBYwmz5ZiKKn5Dev9NX0OG1fdekHTfMBsbCgFHAfeM"
+    document.cookie=`token=${t}`
   },
   methods: {
     handelclick(item,i) {
