@@ -121,8 +121,8 @@ export default {
   },
   mounted() {
     this.getInfo()
-    let t ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEzOCIsImlhdCI6MTU3MjU5OTMxOSwiZXhwIjoxNTcyNjg1NzE5fQ.HtBYwmz5ZiKKn5Dev9NX0OG1fdekHTfMBsbCgFHAfeM"
-    document.cookie=`token=${t}`
+    // let t ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEzOCIsImlhdCI6MTU3MjU5OTMxOSwiZXhwIjoxNTcyNjg1NzE5fQ.HtBYwmz5ZiKKn5Dev9NX0OG1fdekHTfMBsbCgFHAfeM"
+    // document.cookie=`token=${t}`
   },
   methods: {
     handelclick(item,i) {
