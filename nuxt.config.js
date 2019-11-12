@@ -61,6 +61,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    publicPath:'/chat/_nuxt',
     /*
     ** You can extend webpack config here
     */
