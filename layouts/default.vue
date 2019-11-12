@@ -162,17 +162,17 @@ export default {
     },
     getInfo() {
       const _this = this
-      this.$axios.get('www.bixiaohe.fun/user-info')
+      this.$axios.get('http://bixiaohe.fun/user-info')
       .then(function (response) {
         if(response.status == 1) {
-          location.href = 'www.bixiaohe.fun/turnToLogin.html';
+          location.href = 'http://bixiaohe.fun/turnToLogin.html';
         } else {
           console.log(response.data)
           _this.user = response.data
           _this.upload.name = response.data.name
           _this.upload.address = response.data.address
           _this.$socket.emit('online', _this.user.id)
-          _this.$axios.post('www.bixiaohe.fun/friend-info')
+          _this.$axios.post('http://bixiaohe.fun/friend-info')
           .then(function(response) {
             _this.contactors = response.data
             _this.contactors.forEach((item, index) => {
@@ -192,7 +192,7 @@ export default {
       if(id==='check'){
         console.log(id)
       } else{
-          this.$axios.post('www.bixiaohe.fun/friend',{
+          this.$axios.post('http://bixiaohe.fun/friend',{
           friend_id:id,
           user_id:this.user.id,
           operation: 'delete'
@@ -210,7 +210,7 @@ export default {
             type: 'error'
           });
       } else{
-          this.$axios.post('www.bixiaohe.fun/friend',{
+          this.$axios.post('http://bixiaohe.fun/friend',{
           operation: 'add',
           friend_id: this.addId,
           user_id: this.user.id
@@ -249,7 +249,7 @@ export default {
       this.upload.url = res.url
     },
     uploadSubmit() {
-      this.$axios.post('www.bixiaohe.fun/upload-info',this.upload)
+      this.$axios.post('http://bixiaohe.fun/upload-info',this.upload)
         .then((res) => {
           this.user.name = res.data.name
           this.user.address = res.data.address
