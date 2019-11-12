@@ -48,15 +48,15 @@ module.exports = {
     prefix: '/api/',
     proxy: true // Can be also an object with default options
   },
-  proxy: {
-    '/api': {
-      target: 'http://101.132.116.167', // 代理地址
-      changeOrigin: true,
-      pathRewrite: {
-        '^/api': '', //将 /api 替换掉
-      }
-    }
-  },
+  // proxy: {
+  //   '/api': {
+  //     target: 'http://101.132.116.167', // 代理地址
+  //     changeOrigin: true,
+  //     pathRewrite: {
+  //       '^/api': '', //将 /api 替换掉
+  //     }
+  //   }
+  // },
   /*
   ** Build configuration
   */
