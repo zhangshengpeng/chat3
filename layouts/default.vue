@@ -2,18 +2,18 @@
   <div class="container">
     <div class="main">
       <audio id="ding" controls="controls" hidden>
-        <!-- <source src="http://101.132.116.167/music/new.mp3">
-        <source src="http://101.132.116.167/music/new.wav"> -->
+        <!-- <source src="https://www.bixiaohe.fun/music/new.mp3">
+        <source src="https://www.bixiaohe.fun/music/new.wav"> -->
       </audio>
       <!-- <audio id="lp" controls="controls" hidden>
-        <source src="http://101.132.116.167/music/lp.mp3">
-        <source src="http://101.132.116.167/music/lp.wav">
+        <source src="https://www.bixiaohe.fun/music/lp.mp3">
+        <source src="https://www.bixiaohe.fun/music/lp.wav">
       </audio> -->
       <div class="set">
         <el-popover placement="bottom" trigger="hover">
           <p>昵称：{{ user.name }}</p>
           <p>地址：{{ user.address }}</p>
-          <img slot="reference" class="head-img" :src="user.url ? 'https://101.132.116.167'+user.url : 'https://101.132.116.167/img/defualt.jpg'" @click="page=2">
+          <img slot="reference" class="head-img" :src="user.url ? 'https://www.bixiaohe.fun'+user.url : 'https://www.bixiaohe.fun/img/defualt.jpg'" @click="page=2">
         </el-popover>
       </div>
       <!-- 好友列表 -->
@@ -21,7 +21,7 @@
         <ul>
           <li v-if="!contactors.length" style="background: none; color:#aaaaaa; justify-content: center">暂无好友</li>
           <li v-for="(contactor, index) in contactors" :key="index" :class="index === isActive ? 'active':''" @click="handelclick(contactor,index)">
-            <img class="head-img" :src="'https://101.132.116.167'+contactor.url">
+            <img class="head-img" :src="'https://www.bixiaohe.fun'+contactor.url">
             <span style="width:60px">{{ contactor.name }}</span>
             <span :class=" contactor.isNew ? 'new-msg' : ''" />
             <el-dropdown v-show="index === isActive" class="operation" size="small" @command="operation">
@@ -61,7 +61,7 @@
         <el-form label-width="80px" style="margin:40px 0 0 40px;text-align:left;width:300px;">
           <el-form-item label="头像">
             <el-upload class="upload" action="/api/upload-img" name="user" :on-success="headUpload">
-              <img v-if="upload.url" :src="'https://101.132.116.167'+upload.url" class="upload-img">
+              <img v-if="upload.url" :src="'https://www.bixiaohe.fun'+upload.url" class="upload-img">
               <i v-else class="el-icon-plus" />
             </el-upload>
           </el-form-item>
