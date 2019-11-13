@@ -60,7 +60,7 @@
       <div v-show="page === 2">
         <el-form label-width="80px" style="margin:40px 0 0 40px;text-align:left;width:300px;">
           <el-form-item label="头像">
-            <el-upload class="upload" action="/api/upload-img" name="user" :on-success="headUpload">
+            <el-upload class="upload" action="/upload-img" name="user" :on-success="headUpload">
               <img v-if="upload.url" :src="'https://www.bixiaohe.fun'+upload.url" class="upload-img">
               <i v-else class="el-icon-plus" />
             </el-upload>
