@@ -21,7 +21,7 @@
         <ul>
           <li v-if="!contactors.length" style="background: none; color:#aaaaaa; justify-content: center">暂无好友</li>
           <li v-for="(contactor, index) in contactors" :key="index" :class="index === isActive ? 'active':''" @click="handelclick(contactor,index)">
-            <img class="head-img" :src="'http://101.132.116.167'+contactor.url">
+            <img class="head-img" :src="'https://101.132.116.167'+contactor.url">
             <span style="width:60px">{{ contactor.name }}</span>
             <span :class=" contactor.isNew ? 'new-msg' : ''" />
             <el-dropdown v-show="index === isActive" class="operation" size="small" @command="operation">
@@ -61,7 +61,7 @@
         <el-form label-width="80px" style="margin:40px 0 0 40px;text-align:left;width:300px;">
           <el-form-item label="头像">
             <el-upload class="upload" action="/api/upload-img" name="user" :on-success="headUpload">
-              <img v-if="upload.url" :src="'http://101.132.116.167'+upload.url" class="upload-img">
+              <img v-if="upload.url" :src="'https://101.132.116.167'+upload.url" class="upload-img">
               <i v-else class="el-icon-plus" />
             </el-upload>
           </el-form-item>
