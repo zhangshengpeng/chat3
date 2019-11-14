@@ -5,7 +5,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.use(new VueSocketio({
   debug: true,
-  connection: 'https://www.bixiaohe.fun:80' //地址+端口，由后端提供
+  connection: 'https://www.bixiaohe.fun' //地址+端口，由后端提供
 }));
 
 Vue.use(ElementUI)
