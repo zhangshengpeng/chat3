@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- 如果消息为自己发送 -->
     <div v-if="msg.say==user.id">
       <div style="text-align: center;font-size: 0.8em;color: rgb(109,110,106)">
         {{ msg.time }}
@@ -23,6 +24,7 @@
         </div>
       </div>
     </div>
+    <!-- 消息为好友发送 -->
     <div v-else>
       <div>
         <div style="text-align: center;font-size: 0.8em;color: rgb(109,110,106)">

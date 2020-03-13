@@ -34,7 +34,7 @@
           </li>
         </ul>
         <ul>
-          <li @click="add" class="add">
+          <li class="add" @click="add">
             <img class="head-img" src="~/assets/img/add3.png">
             <span style="padding-top:10px">添加好友</span>
           </li>
@@ -78,8 +78,6 @@
           </el-form-item>
         </el-form>
       </div>
-
-
     </div>
   </div>
 </template>

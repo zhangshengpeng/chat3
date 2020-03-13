@@ -28,8 +28,6 @@
       <textarea v-model="textarea" @keyup.enter="handelSubmit" />
       <button @click="handelSubmit">发送</button>
     </div>
-
-
   </div>
 </template>
 
