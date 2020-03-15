@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <div class="main">
-      <audio id="ding" controls="controls" hidden>
-        <!-- <source src="https://www.bixiaohe.fun/music/new.mp3">
-        <source src="https://www.bixiaohe.fun/music/new.wav"> -->
-      </audio>
+      <!-- <audio id="ding" controls="controls" hidden>
+        <source src="https://www.bixiaohe.fun/music/new.mp3">
+        <source src="https://www.bixiaohe.fun/music/new.wav">
+      </audio> -->
       <!-- <audio id="lp" controls="controls" hidden>
         <source src="https://www.bixiaohe.fun/music/lp.mp3">
         <source src="https://www.bixiaohe.fun/music/lp.wav">
@@ -106,9 +106,7 @@ export default {
         url: '',
         name: '',
         address: ''
-      },
-      result: '',
-      value: ''
+      }
     }
   },
 
@@ -150,13 +148,13 @@ export default {
           }
         })
       }
-      if(this.user.id == 17764541552 && i == 1){
-        let audio1 = document.querySelector('#lp');
-        audio1.play();
-      }else{
-        let audio = document.querySelector('#ding');
-        audio.play();
-      }
+      // if(this.user.id == 17764541552 && i == 1){
+      //   let audio1 = document.querySelector('#lp');
+      //   audio1.play();
+      // }else{
+      //   let audio = document.querySelector('#ding');
+      //   audio.play();
+      // }
     },
     getInfo() {
       const _this = this

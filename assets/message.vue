@@ -8,7 +8,7 @@
       <div style="display:inline-block;">
         <div style=" float: left; ">
           <img
-          v-if="user.url"
+            v-if="user.url"
             style="width: 40px;height: 40px;border-radius: 50%;"
             :src="'https://www.bixiaohe.fun'+user.url">
         </div>
