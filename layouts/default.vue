@@ -13,7 +13,7 @@
         <el-popover placement="bottom" trigger="hover">
           <p>昵称：{{ user.name }}</p>
           <p>地址：{{ user.address }}</p>
-          <img slot="reference" class="head-img" :src="user.url ? 'https://www.bixiaohe.fun'+user.url : 'https://www.bixiaohe.fun/img/defualt.jpg'" @click="page=2">
+          <img slot="reference" class="head-img" :src="user.url ? 'https://www.bixiaohe.fun'+user.url : 'https://www.bixiaohe.fun/img/default.jpg'" @click="page=2">
         </el-popover>
       </div>
       <!-- 好友列表 -->
