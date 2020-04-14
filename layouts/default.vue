@@ -2,18 +2,18 @@
   <div class="container">
     <div class="main">
       <!-- <audio id="ding" controls="controls" hidden>
-        <source src="https://www.bixiaohe.fun/music/new.mp3">
-        <source src="https://www.bixiaohe.fun/music/new.wav">
+        <source src="https://www.zsp.cool/music/new.mp3">
+        <source src="https://www.zsp.cool/music/new.wav">
       </audio> -->
       <!-- <audio id="lp" controls="controls" hidden>
-        <source src="https://www.bixiaohe.fun/music/lp.mp3">
-        <source src="https://www.bixiaohe.fun/music/lp.wav">
+        <source src="https://www.zsp.cool/music/lp.mp3">
+        <source src="https://www.zsp.cool/music/lp.wav">
       </audio> -->
       <div class="set">
         <el-popover placement="bottom" trigger="hover">
           <p>昵称：{{ user.name }}</p>
           <p>地址：{{ user.address }}</p>
-          <img slot="reference" class="head-img" :src="user.url ? 'https://www.bixiaohe.fun'+user.url : 'https://www.bixiaohe.fun/img/default.jpg'" @click="page=2">
+          <img slot="reference" class="head-img" :src="user.url ? 'https://www.zsp.cool'+user.url : 'https://www.zsp.cool/img/default.jpg'" @click="page=2">
         </el-popover>
       </div>
       <!-- 好友列表 -->
@@ -21,7 +21,7 @@
         <ul>
           <li v-if="!contactors.length" style="background: none; color:#aaaaaa; justify-content: center">暂无好友</li>
           <li v-for="(contactor, index) in contactors" :key="index" :class="index === isActive ? 'active':''" @click="handelclick(contactor,index)">
-            <img class="head-img" :src="'https://www.bixiaohe.fun'+contactor.url">
+            <img class="head-img" :src="'https://www.zsp.cool'+contactor.url">
             <span style="width:60px">{{ contactor.name }}</span>
             <span :class=" contactor.isNew ? 'new-msg' : ''" />
             <el-dropdown v-show="index === isActive" class="operation" size="small" @command="operation">
@@ -61,7 +61,7 @@
         <el-form label-width="80px" style="margin:40px 0 0 40px;text-align:left;width:300px;">
           <el-form-item label="头像">
             <el-upload class="upload" action="/upload-img" name="user" :on-success="headUpload">
-              <img v-if="upload.url" :src="'https://www.bixiaohe.fun'+upload.url" class="upload-img">
+              <img v-if="upload.url" :src="'https://www.zsp.cool'+upload.url" class="upload-img">
               <i v-else class="el-icon-plus" />
             </el-upload>
           </el-form-item>
@@ -126,7 +126,7 @@ export default {
       this.friend = item;
       this.page = 0
       this.contactors[i].isNew = false
-      this.$axios.post('https://www.bixiaohe.fun/history',
+      this.$axios.post('https://www.zsp.cool/history',
       {
         userId: this.user.id,
         friendId: item.id
@@ -158,17 +158,17 @@ export default {
     },
     getInfo() {
       const _this = this
-      this.$axios.get('https://www.bixiaohe.fun/user-info')
+      this.$axios.get('https://www.zsp.cool/user-info')
       .then(function (response) {
         if(response.status == 1) {
-          location.href = 'https://www.bixiaohe.fun/turnToLogin.html';
+          location.href = 'https://www.zsp.cool/turnToLogin.html';
         } else {
           console.log(response.data)
           _this.user = response.data
           _this.upload.name = response.data.name
           _this.upload.address = response.data.address
           _this.$socket.emit('online', _this.user.id)
-          _this.$axios.post('https://www.bixiaohe.fun/friend-info')
+          _this.$axios.post('https://www.zsp.cool/friend-info')
           .then(function(response) {
             _this.contactors = response.data
             _this.contactors.forEach((item, index) => {
@@ -188,7 +188,7 @@ export default {
       if(id==='check'){
         console.log(id)
       } else{
-          this.$axios.post('https://www.bixiaohe.fun/friend',{
+          this.$axios.post('https://www.zsp.cool/friend',{
           friend_id:id,
           user_id:this.user.id,
           operation: 'delete'
@@ -206,7 +206,7 @@ export default {
             type: 'error'
           });
       } else{
-          this.$axios.post('https://www.bixiaohe.fun/friend',{
+          this.$axios.post('https://www.zsp.cool/friend',{
           operation: 'add',
           friend_id: this.addId,
           user_id: this.user.id
@@ -245,7 +245,7 @@ export default {
       this.upload.url = res.url
     },
     uploadSubmit() {
-      this.$axios.post('https://www.bixiaohe.fun/upload-info',this.upload)
+      this.$axios.post('https://www.zsp.cool/upload-info',this.upload)
         .then((res) => {
           this.user.name = res.data.name
           this.user.address = res.data.address
